@@ -1,0 +1,24 @@
+{
+  "name": "tennu-control",
+  "version": "1.0.0",
+  "description": "Tennu control commands.",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tennu/tennu-control.git"
+  },
+  "keywords": [
+    "tennu",
+    "tennu-plugin",
+    "irc"
+  ],
+  "author": "Ryan Scheel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tennu/tennu-control/issues"
+  },
+  "homepage": "https://github.com/Tennu/tennu-control"
+}
