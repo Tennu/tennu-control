@@ -1,3 +1,5 @@
+var format = require('util').format;
+
 module.exports = {
     init: function (client, imports) {
         const requiresAdmin = imports.admin.requiresAdmin;
@@ -36,9 +38,22 @@ module.exports = {
                     if (command.args[0]) {
                         client.notice(format('PluginControl', 'Changing nickname to %s - requested by %s', command.args[0], command.prefix));
                         client.nick(command.args[0]);
-                    } else {
-                        return;
                     }
+                }),
+
+                '!say': requiresAdmin(function (command) {
+                    return {
+                        channel: command.args[0],
+                        message: command.args.splice(1).join(" ")
+                    };
+                }),
+
+                '!act': requiresAdmin(function (command) {
+                    return {
+                        channel: command.args[0],
+                        intent: "act",
+                        message: command.args.splice(1).join(" ")
+                    };
                 })
             },
 
@@ -67,10 +82,22 @@ module.exports = {
                     ' ',
                     'Change bot\'s nickname to the new nickname.',
                     'Requires admin privileges.'
+                ],
+                'say': [
+                    '!say <channel> <message>',
+                    ' ',
+                    'Say the message to the channel.',
+                    'Requires admin privileges.'
+                ],
+                'act': [
+                    '!act <channel> <action>',
+                    ' ',
+                    'Act the action to the channel.',
+                    'Requires admin privileges.'
                 ]
             },
 
-            commands: ['join', 'part', 'quit', 'nick']
+            commands: ['join', 'part', 'quit', 'nick', 'say', 'act']
         }
     },
 
