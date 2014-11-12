@@ -43,16 +43,16 @@ module.exports = {
 
                 '!say': requiresAdmin(function (command) {
                     return {
-                        channel: command.args[0],
-                        message: command.args.splice(1).join(" ")
+                        target: command.args[0],
+                        message: command.args.slice(1).join(" ")
                     };
                 }),
 
                 '!act': requiresAdmin(function (command) {
                     return {
-                        channel: command.args[0],
+                        target: command.args[0],
                         intent: "act",
-                        message: command.args.splice(1).join(" ")
+                        message: command.args.slice(1).join(" ")
                     };
                 })
             },
