@@ -31,7 +31,13 @@ module.exports = {
 
                 '!quit': requiresAdmin(function (command) {
                     client.notice(format('PluginControl', 'Quitting network - requested by %s', command.prefix));
-                    client.quit();
+
+                    var reason = command.args.join(" ");
+                    if (/^\s*$/.test(reason)) {
+                        reason = format("Requested by %s", command.nickname);
+                    }
+
+                    client.quit(reason);
                 }),
 
                 '!nick': requiresAdmin(function (command) {
