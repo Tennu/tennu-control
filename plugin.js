@@ -86,7 +86,7 @@ module.exports = {
                             intent: "say",
                             message: "Error: mode command sent without enought parameters."
                         };
-                    } else if (command.args.length === 1) {
+                    } else if (command.args.length === 2) {
                         client.rawf("MODE %s %s", command.args[0], command.args[1]);
                     } else {
                         client.rawf("MODE %s :%s", command.args[0], command.args[1], command.args.slice(2).join(" "));
