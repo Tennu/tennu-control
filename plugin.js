@@ -3,6 +3,7 @@ var format = require("util").format;
 module.exports = {
     init: function (client, imports) {
         const requiresAdmin = imports.admin.requiresAdmin;
+        const requiresAdminHelp = "Requires admin privileges.";
 
         return {
             handlers: {
@@ -84,54 +85,54 @@ module.exports = {
                     "{{!}}join <channel>",
                     " ",
                     "Join specifed channel.",
-                    "Requires admin privileges."
+                    requiresAdminHelp
                 ],
                 "part": [
                     "{{!}}part [<channel>]",
                     " ",
                     "Part specified channel.",
                     "If no channel is given, parts channel message was sent in.",
-                    "Requires admin privileges."
+                    requiresAdminHelp
                 ],
                 "quit": [
                     "{{!}}quit [<reason>]",
                     " ",
                     "Quit from network with given reason.",
-                    "Requires admin privileges."
+                    requiresAdminHelp
                 ],
                 "nick": [
                     "{{!}}nick <newnick>",
                     " ",
                     "Change bot\"s nickname to the new nickname.",
-                    "Requires admin privileges."
+                    requiresAdminHelp
                 ],
                 "say": [
                     "{{!}}say <target> <message>",
                     " ",
                     "Send a message to the target.",
-                    "Requires admin privileges."
+                    requiresAdminHelp
                 ],
                 "act": [
                     "{{!}}act <target> <action>",
                     " ",
                     "Perform the action to the target.",
-                    "Requires admin privileges."
+                    requiresAdminHelp
                 ],
                 "ctcp": [
                     "{{!}}ctcp <target> <ctcpType> <ctcpBody>",
                     " ",
                     "Send a CTCP of ctcpType to target with specified body.",
-                    "Requires admin privileges."
+                    requiresAdminHelp
                 ],
                 "notice": [
                     "{{!}}notice <target> <message>",
                     " ",
                     "Send a notice to the target.",
-                    "Requires admin privileges."
+                    requiresAdminHelp
                 ]
             },
 
-            commands: ["join", "part", "quit", "nick", "say", "act", "ctcp"]
+            commands: ["join", "part", "quit", "nick", "say", "act", "ctcp", "notice"]
         }
     },
 
