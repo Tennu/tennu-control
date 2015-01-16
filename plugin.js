@@ -154,7 +154,7 @@ module.exports = {
             },
 
             commands: ["join", "part", "quit", "nick", "say", "act", "ctcp", "notice"]
-        }
+        };
     },
 
     requiresRoles: ["admin"]
