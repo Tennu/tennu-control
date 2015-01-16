@@ -77,6 +77,20 @@ module.exports = {
                         intent: "notice",
                         message: command.args.slice(1).join(" ")
                     };
+                }),
+
+                "!mode": requiresAdmin(function (command) {
+                    if (command.args.length < 2) {
+                        return {
+                            query: true,
+                            intent: "say",
+                            message: "Error: mode command sent without enought parameters."
+                        };
+                    } else if (command.args.length === 1) {
+                        client.rawf("MODE %s %s", command.args[0], command.args[1]);
+                    } else {
+                        client.rawf("MODE %s :%s", command.args[0], command.args[1], command.args.slice(2).join(" "));
+                    }
                 })
             },
 
@@ -128,6 +142,13 @@ module.exports = {
                     "{{!}}notice <target> <message>",
                     " ",
                     "Send a notice to the target.",
+                    requiresAdminHelp
+                ],
+                "mode": [
+                    "{{!}}mode <target> <mode changes> <parameters>",
+                    " ",
+                    "Perform the mode changes.",
+                    "Acts like /mode in your client.",
                     requiresAdminHelp
                 ]
             },
