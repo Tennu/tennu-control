@@ -68,6 +68,14 @@ module.exports = {
                         intent: "ctcp",
                         message: [command.args[1], command.args.slice(2).join(" ")]
                     };
+                }),
+
+                "!notice": requiresAdmin(function (command) {
+                    return {
+                        target: command.args[0],
+                        intent: "notice",
+                        message: command.args.slice(1).join(" ")
+                    };
                 })
             },
 
@@ -100,19 +108,25 @@ module.exports = {
                 "say": [
                     "{{!}}say <target> <message>",
                     " ",
-                    "Say the message to the channel.",
+                    "Send a message to the target.",
                     "Requires admin privileges."
                 ],
                 "act": [
                     "{{!}}act <target> <action>",
                     " ",
-                    "Act the action to the channel.",
+                    "Perform the action to the target.",
                     "Requires admin privileges."
                 ],
                 "ctcp": [
                     "{{!}}ctcp <target> <ctcpType> <ctcpBody>",
                     " ",
                     "Send a CTCP of ctcpType to target with specified body.",
+                    "Requires admin privileges."
+                ],
+                "notice": [
+                    "{{!}}notice <target> <message>",
+                    " ",
+                    "Send a notice to the target.",
                     "Requires admin privileges."
                 ]
             },
