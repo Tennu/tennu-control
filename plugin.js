@@ -65,38 +65,38 @@ module.exports = {
 
             help: {
                 'join': [
-                    '!join <channel>',
+                    '{{!}}join <channel>',
                     ' ',
                     'Join specifed channel.',
                     'Requires admin privileges.'
                 ],
                 'part': [
-                    '!part [<channel>]',
+                    '{{!}}part [<channel>]',
                     ' ',
                     'Part specified channel.',
                     'If no channel is given, parts channel message was sent in.',
                     'Requires admin privileges.'
                 ],
                 'quit': [
-                    '!quit [<reason>]',
+                    '{{!}}quit [<reason>]',
                     ' ',
                     'Quit from network with given reason.',
                     'Requires admin privileges.'
                 ],
                 'nick': [
-                    '!nick <newnick>',
+                    '{{!}}nick <newnick>',
                     ' ',
                     'Change bot\'s nickname to the new nickname.',
                     'Requires admin privileges.'
                 ],
                 'say': [
-                    '!say <channel> <message>',
+                    '{{!}}say <channel> <message>',
                     ' ',
                     'Say the message to the channel.',
                     'Requires admin privileges.'
                 ],
                 'act': [
-                    '!act <channel> <action>',
+                    '{{!}}act <channel> <action>',
                     ' ',
                     'Act the action to the channel.',
                     'Requires admin privileges.'
