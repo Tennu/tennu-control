@@ -89,7 +89,7 @@ module.exports = {
                     } else if (command.args.length === 2) {
                         client.rawf("MODE %s %s", command.args[0], command.args[1]);
                     } else {
-                        client.rawf("MODE %s :%s", command.args[0], command.args[1], command.args.slice(2).join(" "));
+                        client.rawf("MODE %s %s :%s", command.args[0], command.args[1], command.args.slice(2).join(" "));
                     }
                 })
             },
