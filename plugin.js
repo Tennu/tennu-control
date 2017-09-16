@@ -49,31 +49,63 @@ module.exports = {
                 }),
 
                 "!say": requiresAdmin(function (command) {
+                    var target = command.args[0];
+
+                    if (target === "<reply>") {
+                        target = command.channel;
+                    } else if (target === "<query>") {
+                        target = command.nickname;
+                    }
+
                     return {
-                        target: command.args[0],
+                        target: target,
                         message: command.args.slice(1).join(" ")
                     };
                 }),
 
                 "!act": requiresAdmin(function (command) {
+                    var target = command.args[0];
+
+                    if (target === "<reply>") {
+                        target = command.channel;
+                    } else if (target === "<query>") {
+                        target = command.nickname;
+                    }
+
                     return {
-                        target: command.args[0],
+                        target: target,
                         intent: "act",
                         message: command.args.slice(1).join(" ")
                     };
                 }),
 
                 "!ctcp": requiresAdmin(function (command) {
+                    var target = command.args[0];
+
+                    if (target === "<reply>") {
+                        target = command.channel;
+                    } else if (target === "<query>") {
+                        target = command.nickname;
+                    }
+
                     return {
-                        target: command.args[0],
+                        target: target,
                         intent: "ctcp",
                         message: [command.args[1], command.args.slice(2).join(" ")]
                     };
                 }),
 
                 "!notice": requiresAdmin(function (command) {
+                    var target = command.args[0];
+
+                    if (target === "<reply>") {
+                        target = command.channel;
+                    } else if (target === "<query>") {
+                        target = command.nickname;
+                    }
+
                     return {
-                        target: command.args[0],
+                        target: target,
                         intent: "notice",
                         message: command.args.slice(1).join(" ")
                     };
@@ -157,5 +189,5 @@ module.exports = {
         };
     },
 
-    requiresRoles: ["admin"]
+    requires: ["admin"]
 };
