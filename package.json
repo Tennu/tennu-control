@@ -1,6 +1,6 @@
 {
   "name": "tennu-control",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Tennu IRC bot remote control plugin",
   "main": "plugin.js",
   "scripts": {
